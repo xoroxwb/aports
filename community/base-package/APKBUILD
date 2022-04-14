@@ -1,0 +1,13 @@
+# Maintainer: build <build@test.local>
+pkgname="base-package"
+pkgver="1.0.0"
+pkgrel=0
+pkgdesc="A very basic package"
+url="https://base-package.domain.org"
+arch="noarch"
+options="!check"
+license="MIT"
+
+package() {
+    mkdir -p "$pkgdir"
+}
