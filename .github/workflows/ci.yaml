@@ -25,7 +25,6 @@ jobs:
         uses: dorny/paths-filter@v2.10.2
         id: filter
         with:
-          base: HEAD
           filters: |
             main:
               - 'main/*/APKBUILD'
