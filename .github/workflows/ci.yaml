@@ -2,11 +2,10 @@ name: CI
 
 # yamllint disable-line rule:truthy
 on:
-  push:
+  pull_request:
     branches:
       - main
-  pull_request: ~
-  workflow_dispatch:
+      - 3.15-stable
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -32,4 +31,5 @@ jobs:
               - 'community/*/APKBUILD'
             testing:
               - 'testing/*/APKBUILD'
+      - name: linting 
             
