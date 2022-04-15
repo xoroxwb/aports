@@ -21,7 +21,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 20
-          ref: ${{ github.event.pull_request.head.sha }}
       - name: abuild
         uses: docker://xoroxwb/abuild-ci:x86_64
         with:
