@@ -22,5 +22,5 @@ jobs:
         with:
           fetch-depth: 20
           ref: ${{ github.event.pull_request.head.sha }}
-      - run: |
-          git branch
+      - name: abuild
+        uses: xoroxwb/abuild-ci:x86_64
