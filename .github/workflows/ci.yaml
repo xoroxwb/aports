@@ -20,6 +20,10 @@ jobs:
         uses: actions/checkout@v3
         with:
           fetch-depth: 20
+      - name: priv
+        run: |
+          docker run --rm --privileged alpine ip link add dummy0 type dummy
+          docker run --rm --privileged alpine ip link delete dummy0
       - name: abuild
         uses: docker://xoroxwb/abuild-ci:x86_64
         with:
