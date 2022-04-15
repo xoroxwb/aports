@@ -1,5 +1,5 @@
 name: CI
-
+#https://github.com/addnab/docker-run-action
 # yamllint disable-line rule:truthy
 on:
   pull_request:
@@ -21,8 +21,10 @@ jobs:
         with:
           fetch-depth: 20
       - name: abuild
-        uses: docker://xoroxwb/abuild-ci:x86_64
-        options: |
-          --privileged
+        uses: addnab/docker-run-action@v3
         with:
-          entrypoint: build.sh
+          image: xoroxwb/abuild-ci:x86_64
+          options: --privileged
+          run: |
+            build.sh
+
