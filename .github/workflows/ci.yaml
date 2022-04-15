@@ -24,3 +24,5 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: abuild
         uses: docker://xoroxwb/abuild-ci:x86_64
+        with:
+          entrypoint: build.sh
