@@ -13,23 +13,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  changes:
-    name: Determine what has changed
-    outputs:
-      filter: ${{ steps.filter.outputs.changes }}
+  build:
+    name: abuild
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code from GitHub
-        uses: actions/checkout@v3.0.0
-      - name: Filter for repo changes
-        uses: dorny/paths-filter@v2.10.2
-        id: filter
+      - name: checkout pull_request
+        uses: actions/checkout@v3
         with:
-          filters: |
-            main:
-              - 'main/*/APKBUILD'
-            community: 
-              - 'community/*/APKBUILD'
-            testing:
-              - 'testing/*/APKBUILD'
-            
+          fetch-depth: 20
+          ref: ${{ github.event.pull_request.head.sha }}
+      - run: |
+          git branch
