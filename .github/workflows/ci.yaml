@@ -22,7 +22,7 @@ jobs:
       - name: Check out code from GitHub
         uses: actions/checkout@v3.0.0
       - name: Filter for repo changes
-        uses: dorny/paths-filter@v2.10.2
+        uses: dorny/paths-filter@v2.11.1
         id: filter
         with:
           filters: |
