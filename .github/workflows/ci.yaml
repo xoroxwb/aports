@@ -32,4 +32,3 @@ jobs:
               - 'community/*/APKBUILD'
             testing:
               - 'testing/*/APKBUILD'
-            
